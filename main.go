@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-
-	"cicd.hasebou.com/lib"
+	"github.com/khasebou/cicd-playground/lib"
 )
 
 func main() {
 	fmt.Println(
-		lib.Add(5, 7),
+		lib.Add(5, 10),
 	)
 }

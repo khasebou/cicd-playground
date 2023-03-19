@@ -1,13 +1,24 @@
 package lib
 
-import "testing"
+import (
+    . "github.com/onsi/ginkgo/v2"
+    . "github.com/onsi/gomega"
+    "testing"
+)
 
-// TestAdd
-func TestAdd(t *testing.T) {
-    a := -12
-	b := 123
-	exp := a + b
-    if ans := Add(a, b); (ans != exp) {
-        t.Fatalf("Added %d to %d. expected %d, got %d", a ,b, exp, ans)
-    }
+func TestLibs(t *testing.T) {
+    RegisterFailHandler(Fail)
+    RunSpecs(t, "lib Suite")
 }
+
+var _ = Describe("Checking books out of the library", func() {
+    When("Adding two numbers", func() {
+        It("returns the correct result", func() {
+            a := 12
+            b := 123
+            exp := a + b
+            ans := Add(a, b)
+            Expect(ans).To(Equal(exp))
+        })
+    })
+})
